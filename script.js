@@ -162,6 +162,14 @@ document.addEventListener('DOMContentLoaded', () => {
         document.head.appendChild(transitionsCSS);
     }
 
+    // Add slide1-3d.css for 3D effects
+    if (!document.querySelector('link[href="slide1-3d.css"]')) {
+        const slide3DCSS = document.createElement('link');
+        slide3DCSS.rel = 'stylesheet';
+        slide3DCSS.href = 'slide1-3d.css';
+        document.head.appendChild(slide3DCSS);
+    }
+
     // Create transition overlay
     if (!document.getElementById('transition-overlay')) {
         const overlay = document.createElement('div');
