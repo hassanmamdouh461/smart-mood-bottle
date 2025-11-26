@@ -1,0 +1,409 @@
+:root {
+    --bg-color: #0a0a0a;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0b0;
+    --accent-blue: #00f2ff;
+    --accent-green: #00ff88;
+    --accent-red: #ff0055;
+    --font-main: 'Cairo', sans-serif;
+    --font-eng: 'Outfit', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-main);
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+.presentation-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Navigation */
+.nav-controls {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-controls button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.nav-controls button:hover {
+    color: var(--accent-blue);
+}
+
+/* Slides */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: scale(1.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+.slide-content {
+    max-width: 1200px;
+    width: 100%;
+    z-index: 2;
+}
+
+/* Typography */
+h1.main-title {
+    font-family: var(--font-eng);
+    font-size: 5rem;
+    text-align: center;
+    background: linear-gradient(45deg, var(--accent-blue), var(--accent-green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+    text-shadow: 0 0 30px rgba(0, 242, 255, 0.3);
+}
+
+h2.subtitle {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--text-secondary);
+    margin-bottom: 50px;
+}
+
+.section-title {
+    font-family: var(--font-eng);
+    font-size: 3rem;
+    margin-bottom: 30px;
+    color: var(--accent-blue);
+    border-bottom: 2px solid rgba(0, 242, 255, 0.3);
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+/* Layouts */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    align-items: center;
+}
+
+/* Cards */
+.card {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-color: var(--accent-blue);
+}
+
+.card h3 {
+    color: var(--accent-green);
+    margin-bottom: 10px;
+}
+
+.card.danger h3 {
+    color: var(--accent-red);
+}
+
+/* Images */
+.image-block img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 20px rgba(0, 242, 255, 0.2));
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Features List */
+.feature-list {
+    list-style: none;
+}
+
+.feature-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 30px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.feature-list .icon {
+    font-size: 2rem;
+}
+
+/* Color Dots */
+.color-dots {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 10px currentColor;
+}
+
+.dot.blue {
+    background-color: var(--accent-blue);
+    color: var(--accent-blue);
+}
+
+.dot.red {
+    background-color: var(--accent-red);
+    color: var(--accent-red);
+}
+
+.dot.green {
+    background-color: var(--accent-green);
+    color: var(--accent-green);
+}
+
+/* Steps */
+.step {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.step-num {
+    background: var(--accent-blue);
+    color: black;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+/* Analysis Grid */
+.analysis-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.analysis-item {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.2));
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.big-icon {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 20px;
+}
+
+/* Audience Tags */
+.audience-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.tag {
+    background: rgba(0, 242, 255, 0.1);
+    color: var(--accent-blue);
+    padding: 10px 25px;
+    border-radius: 50px;
+    border: 1px solid var(--accent-blue);
+    font-size: 1.2rem;
+    transition: all 0.3s;
+}
+
+.tag:hover {
+    background: var(--accent-blue);
+    color: black;
+    transform: scale(1.1);
+}
+
+/* Price Box */
+.price-box {
+    text-align: center;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 242, 255, 0.1));
+    padding: 40px;
+    border-radius: 30px;
+    border: 1px solid var(--accent-blue);
+    max-width: 500px;
+    margin: 40px auto;
+}
+
+.price {
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--accent-green);
+    margin: 20px 0;
+    text-shadow: 0 0 20px var(--accent-green);
+}
+
+.cta-btn {
+    background: var(--accent-blue);
+    color: black;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: transform 0.2s;
+}
+
+.cta-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px var(--accent-blue);
+}
+
+.center-image-small img {
+    max-height: 300px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 20px;
+}
+
+/* Slide 4 specific - center image sizing */
+.center-img img {
+    width: 100%;
+    max-height: 600px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 20px rgba(0, 242, 255, 0.2));
+}
+
+/* Feature cards */
+.feature-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s;
+}
+
+.feature-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--accent-blue);
+    transform: translateY(-3px);
+}
+
+.feature-card h4 {
+    color: var(--accent-blue);
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+/* Slide 2 - improve image display */
+#slide-2 .image-block img {
+    max-height: 600px;
+}
+
+/* Cards container for problems slide */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+/* Impact list */
+.impact-list {
+    margin: 30px 0;
+}
+
+.impact-list p {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    border-left: 3px solid var(--accent-green);
+}
+
+/* Tagline for slide 2 */
+.tagline {
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+    font-style: italic;
+}

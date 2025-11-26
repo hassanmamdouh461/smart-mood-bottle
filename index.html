@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Mood Bottle Presentation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&family=Outfit:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="presentation-container">
+
+        <!-- Navigation Controls -->
+        <div class="nav-controls">
+            <button id="prev-btn" onclick="prevSlide()">&#10094;</button>
+            <span id="slide-indicator">1 / 8</span>
+            <button id="next-btn" onclick="nextSlide()">&#10095;</button>
+        </div>
+
+        <!-- Slide 1: Product Idea -->
+        <div class="slide active" id="slide-1">
+            <div class="slide-content">
+                <h1 class="main-title">Smart Mood Bottle</h1>
+                <h2 class="subtitle">فكرة المنتج</h2>
+                <div class="grid-2">
+                    <div class="text-block">
+                        <div class="card">
+                            <h3>مصدر الفكرة</h3>
+                            <p>نشأت الفكرة من مشكلة تواجه معظم الناس وهي عدم شرب كمية كافية من الماء، مما يؤثر سلبًا على
+                                الصحة العقلية والجسدية.</p>
+                        </div>
+                        <div class="card">
+                            <h3>الحل</h3>
+                            <p>تحويل قوارير المياه العادية إلى أداة تُذكِّرنا بشرب الماء باستمرار: <strong>Smart Mood
+                                    Bottle</strong>.</p>
+                        </div>
+                        <div class="card">
+                            <h3>الرؤية المستقبلية</h3>
+                            <p>يتماشى هذا المنتج مع التطورات الحديثة، حيث إن الذكاء الاصطناعي (AI) يعزز عالمنا الافتراضي
+                                والواقعي.</p>
+                        </div>
+                    </div>
+                    <div class="image-block">
+                        <img src="images/img_slide1.jpg" alt="Smart Mood Bottle Concept">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: What is Smart Mood Bottle? -->
+        <div class="slide" id="slide-2">
+            <div class="slide-content">
+                <h2 class="section-title">What is Smart Mood Bottle?</h2>
+                <p class="tagline">ليست مجرد زجاجة ماء عادية، إنها زجاجة ذكية.</p>
+
+                <div class="grid-2">
+                    <div class="image-block">
+                        <img src="images/img_slide2.jpg" alt="Smart Bottle Features">
+                    </div>
+                    <div class="text-block">
+                        <ul class="feature-list">
+                            <li>
+                                <span class="icon">💡</span>
+                                <div>
+                                    <strong>التقنية</strong>
+                                    <p>تحتوي على تقنية LED تُغيِّر لونها حسب مستوى الترطيب في الجسم أو الحالة المزاجية.
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="icon">📱</span>
+                                <div>
+                                    <strong>الاتصال</strong>
+                                    <p>تتميز بإمكانية اتصالها بالجوال عن طريق تقنية البلوتوث.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="icon">✨</span>
+                                <div>
+                                    <strong>الخلاصة</strong>
+                                    <p>إنها مناسبة تمامًا لأسلوب حياة صحي وحديث.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Problems -->
+        <div class="slide" id="slide-3">
+            <div class="slide-content">
+                <h2 class="section-title">المشاكل التي أدت لتوليد المنتج</h2>
+                <div class="cards-container">
+                    <div class="card danger">
+                        <h3>النسيان والإلهاء</h3>
+                        <p>زحمة اليوم، العمل، والدراسة تؤثر سلبًا على معدل شربنا للماء.</p>
+                    </div>
+                    <div class="card danger">
+                        <h3>غياب التحفيز</h3>
+                        <p>لا يوجد نظام مبدع ومبتكر يُذكِّر الناس بالشرب بانتظام وبكميات مناسبة.</p>
+                    </div>
+                    <div class="card danger">
+                        <h3>الأعراض السلبية</h3>
+                        <p>أغلب الناس يشعرون بالتعب، الصداع، وعدم التركيز بسبب نسيانهم لشرب الماء.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Pros of Product -->
+        <div class="slide" id="slide-4">
+            <div class="slide-content">
+                <h2 class="section-title">Pros of Product (مميزات المنتج)</h2>
+                <div class="grid-3">
+                    <div class="col">
+                        <div class="feature-card">
+                            <h4>الإضاءة الذكية</h4>
+                            <p>إضاءة LED تتغير حسب حالتك الصحية.</p>
+                            <div class="color-dots">
+                                <span class="dot blue" title="متوسط"></span>
+                                <span class="dot red" title="جفاف"></span>
+                                <span class="dot green" title="جيد"></span>
+                            </div>
+                        </div>
+                        <div class="feature-card">
+                            <h4>التحليل الذكي</h4>
+                            <p>AI لتحليل الحالة المزاجية والصحية.</p>
+                        </div>
+                    </div>
+                    <div class="col center-img">
+                        <img src="images/img_slide4.jpg" alt="Smart Bottle Center">
+                    </div>
+                    <div class="col">
+                        <div class="feature-card">
+                            <h4>التحكم في الحرارة</h4>
+                            <p>تبريد 24 ساعة / حفظ حرارة 12 ساعة.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>صديقة للبيئة</h4>
+                            <p>خالية من BPA وبطارية تدوم أسبوعاً.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: How it Works -->
+        <div class="slide" id="slide-5">
+            <div class="slide-content">
+                <h2 class="section-title">طريقة عمل المنتج</h2>
+                <div class="grid-2">
+                    <div class="text-block">
+                        <div class="step">
+                            <div class="step-num">1</div>
+                            <div class="step-text">
+                                <strong>تسجيل البيانات</strong>
+                                <p>يسجل التطبيق عدد مرات الشرب، الأوقات، والكمية.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">2</div>
+                            <div class="step-text">
+                                <strong>التحليل الذكي (AI)</strong>
+                                <p>تحليل نسب الماء في الجسم والمود.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-num">3</div>
+                            <div class="step-text">
+                                <strong>التنبيهات</strong>
+                                <p>إرسال تنبيهات وتقارير يومية وأسبوعية.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="image-block">
+                        <img src="images/img_slide5.jpg" alt="App Interface">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Analysis Types -->
+        <div class="slide" id="slide-6">
+            <div class="slide-content">
+                <h2 class="section-title">Kind of Analyzation</h2>
+                <div class="analysis-grid">
+                    <div class="analysis-item">
+                        <span class="big-icon">📊</span>
+                        <h3>ملخص الاستهلاك</h3>
+                    </div>
+                    <div class="analysis-item">
+                        <span class="big-icon">⚠️</span>
+                        <h3>تنبيهات النقص</h3>
+                    </div>
+                    <div class="analysis-item">
+                        <span class="big-icon">💡</span>
+                        <h3>نصائح ذكية</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Target Audience -->
+        <div class="slide" id="slide-7">
+            <div class="slide-content">
+                <h2 class="section-title">الجمهور المستهدف</h2>
+                <div class="audience-cloud">
+                    <span class="tag">طلبة الجامعات</span>
+                    <span class="tag">لاعبي الجيم</span>
+                    <span class="tag">الموظفون</span>
+                    <span class="tag">Healthy Lifestyle</span>
+                    <span class="tag">أصحاب اليوم المزدحم</span>
+                    <span class="tag">المرضى (مثل السكر)</span>
+                </div>
+                <div class="center-image-small">
+                    <img src="images/img_slide7.jpg" alt="Active Lifestyle">
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Impact & Price -->
+        <div class="slide" id="slide-8">
+            <div class="slide-content">
+                <h2 class="section-title">الفارق الذي تُحدثه Smart Mood Bottle</h2>
+                <div class="impact-list">
+                    <p>✅ منتج حديث وفعال يعالج مشكلة حقيقية.</p>
+                    <p>✅ يشجع على شرب المياه بطريقة لطيفة.</p>
+                    <p>✅ تقييم ورأي العملاء مرتفع وممتاز.</p>
+                </div>
+
+                <div class="price-box">
+                    <h3>سعر المنتج</h3>
+                    <div class="price">$20</div>
+                    <p>The price of a reminder and health care.</p>
+                    <button class="cta-btn">Buy Now</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
