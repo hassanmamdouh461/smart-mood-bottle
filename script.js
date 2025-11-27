@@ -15,8 +15,10 @@ function showSlide(n) {
     const slideId = `slide-${currentSlide}`;
     document.getElementById(slideId).classList.add('active');
 
-    // Update indicator
-    document.getElementById('slide-indicator').innerText = `${currentSlide} / ${totalSlides}`;
+    // Update progress bar
+    const progressBar = document.getElementById('progress-bar-fill');
+    const progress = (currentSlide / totalSlides) * 100;
+    progressBar.style.width = `${progress}%`;
 }
 
 function nextSlide() {
