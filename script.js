@@ -14,6 +14,9 @@ function showSlide(n) {
     // Add active class to current slide
     const slideId = `slide-${currentSlide}`;
     document.getElementById(slideId).classList.add('active');
+
+    // Update progress bar
+    updateProgressBar();
 }
 
 function nextSlide() {
@@ -26,6 +29,13 @@ function prevSlide() {
     showSlide(currentSlide);
 }
 
+// Update progress bar based on current slide
+function updateProgressBar() {
+    const progressBar = document.getElementById('progressBar');
+    const progress = (currentSlide / totalSlides) * 100;
+    progressBar.style.width = progress + '%';
+}
+
 // Keyboard navigation
 document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowRight' || e.key === ' ') {
@@ -36,4 +46,4 @@ document.addEventListener('keydown', (e) => {
 });
 
 // Initialize
-showSlide(currentSlide);
+showSlide(currentSlide); 
