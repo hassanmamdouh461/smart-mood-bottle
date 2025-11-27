@@ -2807,3 +2807,27 @@ h2.subtitle {
         gap: 40px;
     }
 }
+
+/* Rounded Corners for Slide 2 Image */
+#slide-2 .image-block img {
+    border-radius: 30px;
+
+    /* Premium border matching the feature cards */
+    border: 3px solid rgba(0, 255, 136, 0.3);
+    box-shadow:
+        0 0 40px rgba(0, 255, 136, 0.3),
+        0 0 80px rgba(0, 242, 255, 0.2),
+        inset 0 0 25px rgba(0, 255, 136, 0.1);
+}
+
+/* Rounded Corners for Slide 4 Image */
+#slide-4 .center-img img {
+    border-radius: 30px;
+
+    /* Premium border matching the feature cards */
+    border: 3px solid rgba(0, 255, 136, 0.4);
+    box-shadow:
+        0 0 40px rgba(0, 255, 136, 0.4),
+        0 0 80px rgba(0, 242, 255, 0.3),
+        inset 0 0 25px rgba(0, 255, 136, 0.15);
+}
