@@ -1721,3 +1721,1089 @@ h2.subtitle {
         filter: drop-shadow(0 0 35px rgba(0, 242, 255, 0.6));
     }
 }
+
+/* ============================================
+   SLIDE 5 - HOW IT WORKS 🔄
+   (Process Timeline Design - Auto Animations)
+   ============================================ */
+
+/* Enhanced Step Container */
+.step {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    margin-bottom: 35px;
+    position: relative;
+
+    /* Entrance Animation */
+    animation: stepSlideIn 0.8s ease-out backwards;
+}
+
+.step:nth-child(1) {
+    animation-delay: 0.3s;
+}
+
+.step:nth-child(2) {
+    animation-delay: 0.6s;
+}
+
+.step:nth-child(3) {
+    animation-delay: 0.9s;
+}
+
+@keyframes stepSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+        filter: blur(8px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+        filter: blur(0);
+    }
+}
+
+/* Connecting Line Between Steps */
+.step:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    right: 20px;
+    top: 60px;
+    width: 3px;
+    height: calc(100% + 15px);
+
+    /* Animated Gradient Line */
+    background: linear-gradient(180deg,
+            #00f2ff 0%,
+            #6b5eff 50%,
+            #00f2ff 100%);
+    background-size: 100% 200%;
+
+    box-shadow:
+        0 0 10px rgba(0, 242, 255, 0.5),
+        0 0 20px rgba(107, 94, 255, 0.3);
+
+    animation: lineGlow 3s linear infinite;
+    border-radius: 10px;
+}
+
+@keyframes lineGlow {
+    0% {
+        background-position: 0% 0%;
+        opacity: 0.6;
+    }
+
+    50% {
+        background-position: 0% 100%;
+        opacity: 1;
+    }
+
+    100% {
+        background-position: 0% 0%;
+        opacity: 0.6;
+    }
+}
+
+/* Step Number Circle - Premium Design */
+.step-num {
+    background: radial-gradient(circle at 30% 30%,
+            #00f2ff,
+            #6b5eff);
+    color: #000;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: 900;
+    font-size: 2rem;
+    flex-shrink: 0;
+
+    position: relative;
+
+    /* Neon Glow */
+    box-shadow:
+        0 0 30px rgba(0, 242, 255, 0.6),
+        0 0 60px rgba(107, 94, 255, 0.4),
+        inset 0 0 20px rgba(255, 255, 255, 0.3);
+
+    border: 3px solid rgba(0, 242, 255, 0.8);
+
+    /* Pulse Animation */
+    animation: stepNumPulse 3s ease-in-out infinite;
+}
+
+@keyframes stepNumPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow:
+            0 0 30px rgba(0, 242, 255, 0.6),
+            0 0 60px rgba(107, 94, 255, 0.4),
+            inset 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    50% {
+        transform: scale(1.08);
+        box-shadow:
+            0 0 40px rgba(0, 242, 255, 0.8),
+            0 0 80px rgba(107, 94, 255, 0.6),
+            inset 0 0 30px rgba(255, 255, 255, 0.4);
+    }
+}
+
+/* Rotating Ring Around Step Number */
+.step-num::before {
+    content: '';
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    border: 3px solid transparent;
+    border-top-color: #00f2ff;
+    border-right-color: #6b5eff;
+    border-radius: 50%;
+    animation: stepRingRotate 4s linear infinite;
+    filter: blur(1px);
+}
+
+@keyframes stepRingRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Counter Rotating Outer Ring */
+.step-num::after {
+    content: '';
+    position: absolute;
+    width: 140%;
+    height: 140%;
+    border: 2px solid transparent;
+    border-bottom-color: rgba(0, 242, 255, 0.4);
+    border-left-color: rgba(107, 94, 255, 0.4);
+    border-radius: 50%;
+    animation: stepRingRotateReverse 5s linear infinite;
+    filter: blur(2px);
+}
+
+@keyframes stepRingRotateReverse {
+    0% {
+        transform: rotate(360deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/* Step Text Content Box */
+.step-text {
+    flex: 1;
+
+    /* Glassmorphism Card */
+    background: linear-gradient(135deg,
+            rgba(0, 242, 255, 0.08) 0%,
+            rgba(107, 94, 255, 0.05) 100%);
+    backdrop-filter: blur(15px);
+
+    border: 2px solid transparent;
+    background-image:
+        linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.85)),
+        linear-gradient(135deg, #00f2ff, #6b5eff, #00f2ff);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+
+    border-radius: 20px;
+    padding: 25px 30px;
+
+    box-shadow:
+        0 10px 40px rgba(0, 242, 255, 0.2),
+        0 0 30px rgba(107, 94, 255, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+    position: relative;
+    overflow: hidden;
+}
+
+/* Shimmer Effect Inside Text Box */
+.step-text::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -150%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(0, 242, 255, 0.15) 50%,
+            transparent 100%);
+    animation: textShimmer 5s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes textShimmer {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Step Title */
+.step-text strong {
+    display: block;
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+
+    /* Gradient Text */
+    background: linear-gradient(90deg,
+            #00f2ff 0%,
+            #6b5eff 50%,
+            #00f2ff 100%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    filter: drop-shadow(0 0 15px rgba(0, 242, 255, 0.5));
+    animation: stepTitleGlow 6s linear infinite;
+}
+
+@keyframes stepTitleGlow {
+    0% {
+        background-position: 0% 50%;
+        filter: drop-shadow(0 0 15px rgba(0, 242, 255, 0.5));
+    }
+
+    50% {
+        background-position: 100% 50%;
+        filter: drop-shadow(0 0 20px rgba(107, 94, 255, 0.6));
+    }
+
+    100% {
+        background-position: 0% 50%;
+        filter: drop-shadow(0 0 15px rgba(0, 242, 255, 0.5));
+    }
+}
+
+/* Step Description */
+.step-text p {
+    color: #d5d5d5;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Section Title for Slide 5 */
+#slide-5 .section-title {
+    background: linear-gradient(90deg, #00f2ff, #6b5eff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 20px rgba(0, 242, 255, 0.5));
+    animation: titleGlowPurple 3s ease-in-out infinite;
+}
+
+@keyframes titleGlowPurple {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 20px rgba(0, 242, 255, 0.5));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 35px rgba(107, 94, 255, 0.7));
+    }
+}
+
+/* App Interface Image Enhancement */
+#slide-5 .image-block img {
+    max-height: 650px;
+    border-radius: 40px;
+
+    /* Phone Screen Glow */
+    filter:
+        drop-shadow(0 0 50px rgba(0, 242, 255, 0.4)) drop-shadow(0 0 100px rgba(107, 94, 255, 0.3));
+
+    /* Neon border glow */
+    border: 3px solid rgba(0, 242, 255, 0.3);
+    box-shadow:
+        0 0 50px rgba(0, 242, 255, 0.4),
+        0 0 100px rgba(107, 94, 255, 0.3),
+        inset 0 0 30px rgba(0, 242, 255, 0.1);
+
+    /* Floating Animation */
+    animation: phoneFloat 7s ease-in-out infinite;
+}
+
+@keyframes phoneFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotateY(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotateY(5deg);
+    }
+}
+
+/* Holographic Effect Behind Phone */
+#slide-5 .image-block {
+    position: relative;
+}
+
+#slide-5 .image-block::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background: radial-gradient(ellipse at center,
+            rgba(0, 242, 255, 0.15) 0%,
+            rgba(107, 94, 255, 0.1) 40%,
+            transparent 70%);
+
+    border-radius: 50%;
+    animation: holoGlow 5s ease-in-out infinite;
+    z-index: -1;
+}
+
+@keyframes holoGlow {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.8;
+    }
+}
+
+/* ============================================
+   SLIDE 6 - ANALYSIS TYPES 📊
+   (Simple Professional Design)
+   ============================================ */
+
+/* Analysis Grid */
+.analysis-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 45px;
+    margin-top: 50px;
+}
+
+/* Analysis Cards */
+.analysis-item {
+    position: relative;
+
+    /* Glassmorphism */
+    background: linear-gradient(135deg,
+            rgba(107, 94, 255, 0.12) 0%,
+            rgba(0, 242, 255, 0.08) 100%);
+    backdrop-filter: blur(20px);
+
+    /* Gradient Border */
+    border: 2px solid transparent;
+    background-image:
+        linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.85)),
+        linear-gradient(135deg, #6b5eff, #00f2ff, #6b5eff);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+
+    border-radius: 30px;
+    padding: 60px 35px;
+    text-align: center;
+
+    /* Glow */
+    box-shadow:
+        0 20px 60px rgba(107, 94, 255, 0.25),
+        0 0 40px rgba(0, 242, 255, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Icon */
+.big-icon {
+    font-size: 6rem;
+    display: block;
+    margin-bottom: 30px;
+    filter: drop-shadow(0 0 35px rgba(107, 94, 255, 0.6));
+    animation: iconPulse 3s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 35px rgba(107, 94, 255, 0.6));
+    }
+
+    50% {
+        transform: scale(1.08);
+        filter: drop-shadow(0 0 50px rgba(0, 242, 255, 0.8));
+    }
+}
+
+.analysis-item:nth-child(1) .big-icon {
+    animation-delay: 0s;
+}
+
+.analysis-item:nth-child(2) .big-icon {
+    animation-delay: 0.4s;
+}
+
+.analysis-item:nth-child(3) .big-icon {
+    animation-delay: 0.8s;
+}
+
+/* Title */
+.analysis-item h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+
+    background: linear-gradient(90deg,
+            #6b5eff 0%,
+            #00f2ff 50%,
+            #6b5eff 100%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    filter: drop-shadow(0 0 20px rgba(107, 94, 255, 0.5));
+    animation: titleGlow 5s linear infinite;
+}
+
+@keyframes titleGlow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Entrance Animation */
+.analysis-item {
+    animation: slideUp 1s ease-out backwards;
+}
+
+.analysis-item:nth-child(1) {
+    animation-delay: 0.3s;
+}
+
+.analysis-item:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.analysis-item:nth-child(3) {
+    animation-delay: 0.7s;
+}
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Different Colors */
+.analysis-item:nth-child(1) {
+    background-image:
+        linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.85)),
+        linear-gradient(135deg, #00f2ff, #6b5eff, #00f2ff);
+}
+
+.analysis-item:nth-child(2) {
+    background-image:
+        linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.85)),
+        linear-gradient(135deg, #6b5eff, #9b7eff, #6b5eff);
+}
+
+.analysis-item:nth-child(3) {
+    background-image:
+        linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.85)),
+        linear-gradient(135deg, #00f2ff, #6b5eff, #00f2ff);
+}
+
+/* Section Title */
+#slide-6 .section-title {
+    background: linear-gradient(90deg, #6b5eff, #00f2ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 25px rgba(107, 94, 255, 0.6));
+}
+
+
+
+/* ============================================
+   SLIDE 7 - TARGET AUDIENCE 🎯
+   (Matching Slides 1-4 Style)
+   ============================================ */
+
+/* Audience Tag Cloud */
+.audience-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin: 50px 0 60px 0;
+}
+
+/* Tags - Same Style as Slide 2 Feature List */
+.tag {
+    position: relative;
+
+    /* Glassmorphism */
+    background: linear-gradient(135deg,
+            rgba(0, 255, 136, 0.12) 0%,
+            rgba(0, 242, 255, 0.08) 100%);
+    backdrop-filter: blur(20px);
+
+    /* Gradient Border */
+    border: 2px solid transparent;
+    background-image:
+        linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.85)),
+        linear-gradient(135deg, #00ff88, #00f2ff, #00ff88);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+
+    color: #ffffff;
+    padding: 18px 35px;
+    border-radius: 50px;
+    font-size: 1.4rem;
+    font-weight: 600;
+
+    /* Glow - Same as Feature Cards */
+    box-shadow:
+        0 15px 50px rgba(0, 255, 136, 0.25),
+        0 0 30px rgba(0, 242, 255, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        inset 0 -1px 0 rgba(0, 255, 136, 0.2);
+}
+
+/* Entrance Animation - Same as Feature Cards */
+.tag {
+    animation: tagSlideIn 0.8s ease-out backwards;
+}
+
+.tag:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.tag:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.tag:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.tag:nth-child(4) {
+    animation-delay: 0.8s;
+}
+
+.tag:nth-child(5) {
+    animation-delay: 1.0s;
+}
+
+.tag:nth-child(6) {
+    animation-delay: 1.2s;
+}
+
+@keyframes tagSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(50px) scale(0.95);
+        filter: blur(8px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+/* Different Colors - Like Slide 4 */
+.tag:nth-child(1) {
+    background-image:
+        linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.85)),
+        linear-gradient(135deg, #00ff88, #00f2ff, #00ff88);
+}
+
+.tag:nth-child(2) {
+    background-image:
+        linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.85)),
+        linear-gradient(135deg, #00f2ff, #00ff88, #00f2ff);
+}
+
+.tag:nth-child(3) {
+    background-image:
+        linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.85)),
+        linear-gradient(135deg, #00ff88, #00f2ff, #00ff88);
+}
+
+.tag:nth-child(4) {
+    background-image:
+        linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.85)),
+        linear-gradient(135deg, #00f2ff, #00ff88, #00f2ff);
+}
+
+.tag:nth-child(5) {
+    background-image:
+        linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.85)),
+        linear-gradient(135deg, #00ff88, #00f2ff, #00ff88);
+}
+
+.tag:nth-child(6) {
+    background-image:
+        linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.85)),
+        linear-gradient(135deg, #00f2ff, #00ff88, #00f2ff);
+}
+
+/* Center Image - Same Style as Slide 2 & 4 */
+.center-image-small {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.center-image-small img {
+    max-height: 450px;
+    max-width: 700px;
+    width: auto;
+    border-radius: 40px;
+
+    /* Same as Slide 2 Image */
+    border: 3px solid rgba(0, 255, 136, 0.3);
+    box-shadow:
+        0 0 50px rgba(0, 255, 136, 0.4),
+        0 0 100px rgba(0, 242, 255, 0.3),
+        inset 0 0 30px rgba(0, 255, 136, 0.1);
+
+    filter: drop-shadow(0 0 40px rgba(0, 255, 136, 0.3));
+
+    /* Same Float Animation as Images */
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Section Title - Same as Other Slides */
+#slide-7 .section-title {
+    color: var(--accent-green);
+    background: linear-gradient(90deg, #00ff88, #00f2ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 20px rgba(0, 255, 136, 0.5));
+}
+
+
+/* ============================================
+   SLIDE 8 - IMPACT & PRICE 💰
+   (Professional Premium Finale)
+   ============================================ */
+
+/* Two-Column Layout */
+#slide-8 .slide-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+/* Left Column - Impact Cards */
+.impact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.impact-list p {
+    font-size: 1.3rem;
+    padding: 22px 30px;
+    margin: 0;
+
+    /* Clean Glassmorphism */
+    background: linear-gradient(135deg,
+            rgba(0, 255, 136, 0.1) 0%,
+            rgba(0, 242, 255, 0.06) 100%);
+    backdrop-filter: blur(15px);
+
+    border: 2px solid rgba(0, 255, 136, 0.3);
+    border-radius: 18px;
+    border-left: 4px solid #00ff88;
+
+    box-shadow:
+        0 8px 30px rgba(0, 255, 136, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+    transition: all 0.3s ease;
+    animation: impactFadeIn 0.6s ease-out backwards;
+}
+
+.impact-list p:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.impact-list p:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.impact-list p:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+@keyframes impactFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Right Column - Price Card */
+.price-box {
+    text-align: center;
+    position: relative;
+
+    /* Premium Card */
+    background: linear-gradient(135deg,
+            rgba(0, 255, 136, 0.12) 0%,
+            rgba(0, 242, 255, 0.08) 100%);
+    backdrop-filter: blur(20px);
+
+    border: 3px solid transparent;
+    background-image:
+        linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.85)),
+        linear-gradient(135deg, #00ff88, #00f2ff, #00ff88);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+
+    padding: 50px 40px;
+    border-radius: 35px;
+
+    box-shadow:
+        0 25px 70px rgba(0, 255, 136, 0.3),
+        0 0 50px rgba(0, 242, 255, 0.2),
+        inset 0 2px 0 rgba(255, 255, 255, 0.15);
+
+    animation: priceCardIn 1s ease-out backwards 0.6s;
+}
+
+@keyframes priceCardIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Price Label */
+.price-box h3 {
+    font-size: 1.8rem;
+    color: #d0d0d0;
+    margin-bottom: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Price Amount - Hero Element */
+.price {
+    font-size: 5.5rem;
+    font-weight: 900;
+    margin: 25px 0;
+    line-height: 1;
+
+    background: linear-gradient(135deg, #00ff88, #00f2ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    filter: drop-shadow(0 0 40px rgba(0, 255, 136, 0.6));
+
+    position: relative;
+}
+
+/* Price Subtitle */
+.price-box>p {
+    font-size: 1.15rem;
+    color: #b0b0b0;
+    margin: 20px 0 35px 0;
+    line-height: 1.6;
+}
+
+/* CTA Button - Professional */
+.cta-btn {
+    background: linear-gradient(135deg, #00ff88, #00f2ff);
+    color: #000;
+    border: none;
+    padding: 18px 50px;
+    font-size: 1.6rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 800;
+
+    box-shadow:
+        0 12px 40px rgba(0, 255, 136, 0.4),
+        inset 0 2px 0 rgba(255, 255, 255, 0.4);
+
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.cta-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow:
+        0 18px 60px rgba(0, 255, 136, 0.6),
+        inset 0 2px 0 rgba(255, 255, 255, 0.5);
+}
+
+/* Section Title - Professional */
+#slide-8 .section-title {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-bottom: 40px;
+
+    background: linear-gradient(90deg, #00ff88, #00f2ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 25px rgba(0, 255, 136, 0.6));
+}
+
+/* Responsive - Stack on smaller screens */
+@media (max-width: 900px) {
+    #slide-8 .slide-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+/* ============================================
+   SLIDE 8 - IMPACT & PRICE 💰
+   (Professional Premium Finale)
+   ============================================ */
+
+/* Two-Column Layout */
+#slide-8 .slide-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+/* Left Column - Impact Cards */
+.impact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.impact-list p {
+    font-size: 1.3rem;
+    padding: 22px 30px;
+    margin: 0;
+
+    /* Clean Glassmorphism */
+    background: linear-gradient(135deg,
+            rgba(0, 255, 136, 0.1) 0%,
+            rgba(0, 242, 255, 0.06) 100%);
+    backdrop-filter: blur(15px);
+
+    border: 2px solid rgba(0, 255, 136, 0.3);
+    border-radius: 18px;
+    border-left: 4px solid #00ff88;
+
+    box-shadow:
+        0 8px 30px rgba(0, 255, 136, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+    transition: all 0.3s ease;
+    animation: impactFadeIn 0.6s ease-out backwards;
+}
+
+.impact-list p:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.impact-list p:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.impact-list p:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+@keyframes impactFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Right Column - Price Card */
+.price-box {
+    text-align: center;
+    position: relative;
+
+    /* Premium Card */
+    background: linear-gradient(135deg,
+            rgba(0, 255, 136, 0.12) 0%,
+            rgba(0, 242, 255, 0.08) 100%);
+    backdrop-filter: blur(20px);
+
+    border: 3px solid transparent;
+    background-image:
+        linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.85)),
+        linear-gradient(135deg, #00ff88, #00f2ff, #00ff88);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+
+    padding: 50px 40px;
+    border-radius: 35px;
+
+    box-shadow:
+        0 25px 70px rgba(0, 255, 136, 0.3),
+        0 0 50px rgba(0, 242, 255, 0.2),
+        inset 0 2px 0 rgba(255, 255, 255, 0.15);
+
+    animation: priceCardIn 1s ease-out backwards 0.6s;
+}
+
+@keyframes priceCardIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Price Label */
+.price-box h3 {
+    font-size: 1.8rem;
+    color: #d0d0d0;
+    margin-bottom: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Price Amount - Hero Element */
+.price {
+    font-size: 5.5rem;
+    font-weight: 900;
+    margin: 25px 0;
+    line-height: 1;
+
+    background: linear-gradient(135deg, #00ff88, #00f2ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    filter: drop-shadow(0 0 40px rgba(0, 255, 136, 0.6));
+
+    position: relative;
+}
+
+/* Price Subtitle */
+.price-box>p {
+    font-size: 1.15rem;
+    color: #b0b0b0;
+    margin: 20px 0 35px 0;
+    line-height: 1.6;
+}
+
+/* CTA Button - Professional */
+.cta-btn {
+    background: linear-gradient(135deg, #00ff88, #00f2ff);
+    color: #000;
+    border: none;
+    padding: 18px 50px;
+    font-size: 1.6rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 800;
+
+    box-shadow:
+        0 12px 40px rgba(0, 255, 136, 0.4),
+        inset 0 2px 0 rgba(255, 255, 255, 0.4);
+
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.cta-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow:
+        0 18px 60px rgba(0, 255, 136, 0.6),
+        inset 0 2px 0 rgba(255, 255, 255, 0.5);
+}
+
+/* Section Title - Professional */
+#slide-8 .section-title {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-bottom: 40px;
+
+    background: linear-gradient(90deg, #00ff88, #00f2ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 25px rgba(0, 255, 136, 0.6));
+}
+
+/* Responsive - Stack on smaller screens */
+@media (max-width: 900px) {
+    #slide-8 .slide-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}

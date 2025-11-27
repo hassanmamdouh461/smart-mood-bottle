@@ -14,11 +14,6 @@ function showSlide(n) {
     // Add active class to current slide
     const slideId = `slide-${currentSlide}`;
     document.getElementById(slideId).classList.add('active');
-
-    // Update progress bar
-    const progressBar = document.getElementById('progress-bar-fill');
-    const progress = (currentSlide / totalSlides) * 100;
-    progressBar.style.width = `${progress}%`;
 }
 
 function nextSlide() {
