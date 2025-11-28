@@ -1,3 +1,4 @@
+// Smart Mood Bottle Presentation - Rebuild Trigger
 let currentSlide = 1;
 const totalSlides = 8;
 
@@ -13,7 +14,10 @@ function showSlide(n) {
 
     // Add active class to current slide
     const slideId = `slide-${currentSlide}`;
-    document.getElementById(slideId).classList.add('active');
+    const slideElement = document.getElementById(slideId);
+    if (slideElement) {
+        slideElement.classList.add('active');
+    }
 
     // Update progress bar
     updateProgressBar();
@@ -32,8 +36,10 @@ function prevSlide() {
 // Update progress bar based on current slide
 function updateProgressBar() {
     const progressBar = document.getElementById('progressBar');
-    const progress = (currentSlide / totalSlides) * 100;
-    progressBar.style.width = progress + '%';
+    if (progressBar) {
+        const progress = (currentSlide / totalSlides) * 100;
+        progressBar.style.width = progress + '%';
+    }
 }
 
 // Keyboard navigation
@@ -46,4 +52,6 @@ document.addEventListener('keydown', (e) => {
 });
 
 // Initialize
-showSlide(currentSlide); 
+document.addEventListener('DOMContentLoaded', () => {
+    showSlide(currentSlide);
+});
